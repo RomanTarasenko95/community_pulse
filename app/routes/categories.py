@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.models import Category, db
 from app.schemas.questions import CategoryBase, CategoryResponse
+from pydantic import ValidationError
 
 categories_bp = Blueprint('categories', __name__, url_prefix='/categories')
 
