@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import Category, db
+from app.models import Category, Question, db
 from app.schemas.questions import CategoryBase, CategoryResponse
 from pydantic import ValidationError
 
@@ -47,6 +47,9 @@ def delete_category(category_id):
     category = Category.query.get(category_id)
     if category is None:
         return jsonify({'message': 'Category not found'}), 404
+
+    # Удаление всех вопросов, связанных с этой категорией
+    Question.query.filter_by(category_id=category_id).delete()
 
     db.session.delete(category)
     db.session.commit()
