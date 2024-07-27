@@ -15,7 +15,6 @@ def get_responses():
         }
         for stat in statistics
     ]
-
     return jsonify(results), 200
 
 
@@ -49,4 +48,3 @@ def add_response():
     db.session.commit()
 
     return jsonify({'message': f"Ответ на вопрос {question.id} добавлен"}), 201
-

@@ -1,4 +1,4 @@
-from app.models import db
+from app.models.database import db
 
 
 class Response(db.Model):

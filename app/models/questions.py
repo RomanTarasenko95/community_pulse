@@ -14,7 +14,6 @@ class Question(db.Model):
     def __repr__(self):
         return f'Question: {self.text}'
 
-
 class Statistic(db.Model):
     __tablename__ = 'statistics'
 

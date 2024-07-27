@@ -24,7 +24,6 @@ def create_category():
     category = Category(name=category_data.name)
     db.session.add(category)
     db.session.commit()
-
     return jsonify(CategoryResponse.from_orm(category).dict()), 201
 
 
